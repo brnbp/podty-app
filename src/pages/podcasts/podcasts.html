@@ -1,0 +1,28 @@
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Podcasts
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page3">
+  <ion-list id="podcasts-list2">
+    <button ion-item *ngFor="let podcast of podcasts" (click)="podcastTapped($event, podcast)">
+      <ion-thumbnail item-left>
+        <img src="{{podcast.image}}">
+      </ion-thumbnail>
+      
+      <div class="item-note" item-left>
+        {{podcast.name}} <br>
+        Episodes: {{podcast.total_episodes}}
+      </div>
+    </button>
+  </ion-list>
+  <div *ngIf="selectedPodcast" padding>
+    You navigated here from <b>{{selectedPodcast.name}}</b>
+  </div>
+</ion-content>

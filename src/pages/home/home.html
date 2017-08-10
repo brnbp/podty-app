@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page2">
+  <ion-list id="podcasts-list2">
+    <ion-item *ngFor="let episode of episodes">
+     
+      <ion-thumbnail item-left>
+        <img src="{{episode.image}}">
+      </ion-thumbnail>
+      
+      <div class="item-note" item-left>
+        <small>{{episode.published_date }}</small> <br>
+        <b>{{episode.title}}</b><br>
+        {{episode.duration}} <br>
+
+        <div class="item tabs tabs-secondary tabs-icon-left">
+          <button ion-item (click)="playTrack(episode.media, episode.id)">
+            Play
+          </button>
+          <button ion-item (click)="stopTrack(episode.id)">
+            Stop
+          </button>
+        </div>
+
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
